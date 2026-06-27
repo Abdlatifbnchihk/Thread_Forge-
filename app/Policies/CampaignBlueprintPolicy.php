@@ -19,6 +19,12 @@ class CampaignBlueprintPolicy
         return $user->id === $blueprint->user_id;
     }
 
+    // Can the user create a generated post for this blueprint?
+    public function store(User $user, CampaignBlueprint $blueprint): bool
+    {
+        return $user->id === $blueprint->user_id;
+    }
+
     // Can the user delete this blueprint?
     public function delete(User $user, CampaignBlueprint $blueprint): bool
     {

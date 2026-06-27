@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\GeneratedPost;
+use App\Models\RawContent;
 
 class CampaignBlueprint extends Model
 {
@@ -39,6 +40,10 @@ class CampaignBlueprint extends Model
 
     public function generatedPosts(){
         return $this->hasMany(GeneratedPost::class);
+    }
+
+    public function rawContents(){
+        return $this->hasMany(RawContent::class);
     }
 
 }
