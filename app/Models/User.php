@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\CampaignBlueprint;
+use App\Models\RawContent;
 use Laravel\Sanctum\HasApiTokens;
 
 #[Fillable(['name', 'email', 'password'])]
@@ -45,5 +46,9 @@ class User extends Authenticatable
 
     public function campaignBlueprints(){
         return $this->hasMany(CampaignBlueprint::class);
+    }
+
+    public function rawContents(){
+        return $this->hasMany(RawContent::class);
     }
 }
