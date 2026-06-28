@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GeneratedPostController;
+use App\Http\Controllers\GhostwriterController;
 use App\Http\Controllers\RawContentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CampaignBlueprintController;
@@ -31,4 +32,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('posts', [GeneratedPostController::class, 'index']);
     Route::get('posts/{post}', [GeneratedPostController::class, 'show']);
     Route::patch('posts/{post}/status', [GeneratedPostController::class, 'updateStatus']);
+
+    // Ghostwriter Chat
+    Route::get('posts/{post}/chat', [GhostwriterController::class, 'history']);
+    Route::post('posts/{post}/chat', [GhostwriterController::class, 'send']);
 });
